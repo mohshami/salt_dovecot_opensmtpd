@@ -1,0 +1,2 @@
+mailsrv._domainkey	IN	TXT	( "v=DKIM1; k=rsa; t=s; "
+	  "p= {{ keys[1] }}" )  ; ----- DKIM key mailsrv for {{ domain }}

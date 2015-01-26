@@ -1,0 +1,4 @@
+{% set domains = salt['pillar.get']('domains') %}
+{%- for domain in domains[:-1] -%}
+{{ domain }} dkim(c=relaxed/simple, a=rsa-sha256,s=mailsrv,key=/usr/local/etc/dkimproxy/{{ domain }}/private)
+{% endfor -%}{{ domains[-1] }} dkim(c=relaxed/simple, a=rsa-sha256,s=mailsrv,key=/usr/local/etc/dkimproxy/{{ domains[-1] }}/private)

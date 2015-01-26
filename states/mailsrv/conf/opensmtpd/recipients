@@ -1,0 +1,3 @@
+{% for account in salt['pillar.get']('accounts') -%}
+{{ account[0] }}
+{% endfor -%}

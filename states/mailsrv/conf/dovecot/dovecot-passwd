@@ -1,0 +1,4 @@
+{% set passwordSalt = salt['pillar.get']('salt') %}
+{%- for account in salt['pillar.get']('accounts') -%}
+{{ account[0] }}:{SHA512-CRYPT}{{ salt['password.hash'](account[1], passwordSalt) }}
+{% endfor -%}
